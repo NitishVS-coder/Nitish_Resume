@@ -132,12 +132,13 @@
             flex-direction: row;
         }
 
-        .timeline {
+        /* --- Timeline Fix Starts Here --- */
+        .timeline, .timeline2 {
             position: relative;
             padding-left: 40px;
         }
 
-        .timeline::before {
+        .timeline::before, .timeline2::before {
             content: "";
             position: absolute;
             left: 15px;
@@ -146,23 +147,23 @@
             background: white;
         }
 
-        .timeline-item {
-            position: relative;
+        .timeline-item, .timeline-item2 {
+            position: relative; /* Relative position is crucial */
             margin-bottom: 20px;
             padding-left: 0px;
         }
 
-        .timeline-item::before {
+        .timeline-item::before, .timeline-item2::before {
             content: "";
             position: absolute;
-            left: -31px;
-            top: 50%;
-            transform: translateY(-50%);
+            left: -31px; /* Correct alignment with the line */
+            top: 5px;    /* Aligns bullet with the first line of text */
             width: 15px;
             height: 15px;
             background: white;
             border-radius: 50%;
         }
+        /* --- Timeline Fix Ends Here --- */
 
         .project-section {
             display: flex;
@@ -206,39 +207,6 @@
             background: white;
         }
 
-        .timeline2 {
-            position: relative;
-            padding-left: 40px;
-        }
-
-        .timeline2::before {
-            content: "";
-            position: absolute;
-            left: 15px;
-            width: 2px;
-            height: 100%;
-            background: white;
-        }
-
-        .timeline-item2 {
-            position: relative;
-            margin-bottom: 20px;
-            padding-left: 0px;
-        }
-
-        .timeline-item2::before {
-            content: "";
-            position: absolute;
-            left: -31px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 15px;
-            height: 15px;
-            background: white;
-            border-radius: 50%;
-        }
-
-        /* rtrt */
         .container2 {
             width: 60%;
             margin: auto;
@@ -315,143 +283,79 @@
             transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
         }
 
-        .profile-about {
-            transform: translateX(-50px);
-        }
-
-        .education-section {
-            transform: translateX(50px);
-        }
-
-        .skills-section {
-            transform: translateX(-50px);
-        }
-
-        .experience-section {
-            transform: translateX(50px);
-        }
-
-        .project-section {
-            transform: translateX(-50px);
-        }
-
-        .contact-section {
-            transform: translateX(50px);
-        }
+        .profile-about { transform: translateX(-50px); }
+        .education-section { transform: translateX(50px); }
+        .skills-section { transform: translateX(-50px); }
+        .experience-section { transform: translateX(50px); }
+        .project-section { transform: translateX(-50px); }
+        .contact-section { transform: translateX(50px); }
 
         .show {
             opacity: 1;
             transform: translateX(0);
         }
 
-/* mobile response */
+        /* mobile response */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
 
+            .profile-pic {
+                height: 120px !important;
+            }
 
+            .profile-about, 
+            .education-container, 
+            .skills-container, 
+            .experience-container, 
+            .project-container, 
+            .container-flex {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
 
+            .education-image, 
+            .skills-image, 
+            .experience-image, 
+            .project-image, 
+            .image-container {
+                order: -1; /* Images move to top on mobile */
+            }
 
-@media screen and (max-width: 768px) {
-    .container {
-        width: 90%; /* Mobile screens pe width kam kar diya */
-        padding: 15px;
-    }
-    @media screen and (max-width: 768px) {
-    .profile-pic {
-        height: 120px !important; /* Yeh force apply karega */
-    }
-}
+            .profile-section, 
+            .about-section, 
+            .education-details, 
+            .skills-details, 
+            .experience-details, 
+            .project-details, 
+            .details {
+                width: 100%;
+                text-align: left; /* Keep text left aligned for timeline */
+            }
 
+            .profile-pic, .education-pic, .skills-pic, .experience-pic, .project-pic, .pic {
+                width: 100px;
+                height: 100px;
+            }
 
-    .profile-about, 
-    .education-container, 
-    .skills-container, 
-    .experience-container, 
-    .project-container, 
-    .container-flex {
-        flex-direction: column; /* Mobile pe ek ke neeche ek aaye */
-        align-items: center;
-        text-align: center;
-    }
-
-    .profile-section, 
-    .about-section, 
-    .education-details, 
-    .skills-details, 
-    .experience-details, 
-    .project-details, 
-    .details {
-        width: 100%; /* Full width le lenge */
-    }
-
-    .profile-pic, 
-    .education-pic, 
-    .skills-pic, 
-    .experience-pic, 
-    .project-pic, 
-    .pic {
-        width: 100px; /* Mobile me icons thode chhote ho jaye */
-        height: 100px;
-    }
-
-    .timeline::before {
-        left: 10px; /* Timeline thodi adjust ho jaye */
-    }
-
-    .timeline-item::before {
-        left: -25px; /* Timeline dots ko bhi adjust kiya */
-    }
-}
-
-/* ttt */
-@media screen and (max-width: 768px) {
-    .profile-about, 
-    .education-container, 
-    .skills-container, 
-    .experience-container, 
-    .project-container {
-        flex-direction: column; /* Mobile pe ek ke neeche ek aaye */
-        align-items: center;
-        text-align: center;
-    }
-
-    .education-image, 
-    .skills-image, 
-    .experience-image, 
-    .project-image, 
-    .image-container {
-        order: -1; /* Images ko upar le aayenge */
-    }
-
-    .profile-section, 
-    .about-section, 
-    .education-details, 
-    .skills-details, 
-    .experience-details, 
-    .project-details, 
-    .details {
-        width: 100%; /* Full width le lenge */
-    }
-
-    .profile-pic, 
-    .education-pic, 
-    .skills-pic, 
-    .experience-pic, 
-    .project-pic, 
-    .pic {
-        width: 100px; /* Mobile me icons thode chhote ho jaye */
-        height: 100px;
-    }
-}
-
-
-
-
+            /* Timeline consistency on mobile */
+            .timeline::before, .timeline2::before {
+                left: 15px;
+            }
+            .timeline-item::before, .timeline-item2::before {
+                left: -31px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <h1>Portfoliooooo</h1>
+            <h1>RESUME</h1>
         </div>
 
         <div class="container profile-about">
@@ -474,9 +378,10 @@
                     <div class="timeline">
                         <div class="timeline-item"><strong>10th Pass</strong> from CBSE</div>
                         <div class="timeline-item"><strong>12th Pass</strong> from NIOS</div>
-                        <div class="timeline-item"><strong>Graduation</strong> : BCA (Bachelor of Computer Applications)</div>
-                        <div class="timeline-item"><strong>Certifications</strong> : Advance Diploma in Information
-                            Technology (SCP Infotech Institute)</div>
+                        <div class="timeline-item"><strong>Graduation</strong> : BCA (Bachelor of Computer Applications) in pursuing from “IGNOU”</div>
+                        <div class="timeline-item"><strong>Certifications</strong> : ADIT
+                            (Advance Diploma in Information Technology)
+                            from “SCP Infotech Institute”</div>
                     </div>
                 </div>
                 <div class="education-image">
@@ -496,14 +401,18 @@
                     <div class="skills-list">
                         <ul>
                             <li>MS-Office</li>
-                            <li>Basic & Advanced Excel</li>
+                            <li>Basic & Adv. Excel</li>
                             <li>Basic Accounting</li>
-                            <li>Tally</li>
+                            <li>Tally With GST</li>
                             <li>Data Entry</li>
+                            <li>English & Hindi Typing</li>
+                            <li>C & C++</li>
                         </ul>
                         <ul>
                             <li>Photoshop</li>
                             <li>PageMaker</li>
+                            <li>Indesign</li>
+                            <li>Illustrator</li>
                             <li>CorelDraw</li>
                             <li>HTML & CSS</li>
                             <li>JavaScript</li>
@@ -522,8 +431,8 @@
                             "Emm Key Sale & Service" <span style="color: lightblue;">2020 - 2022</span>
                         </div>
                         <div class="timeline-item">
-                            <strong>2 Year Experience</strong> as a computer teacher , calling , data management from
-                            "SCP Infotech Institute" <span style="color: lightblue;">2023 - 2025</span>
+                            <strong>3 Year Experience</strong> as a computer teacher , calling , data management from
+                            "SCP Infotech Institute" <span style="color: lightblue;">2023 - 2026</span>
                         </div>
                     </div>
                 </div>
@@ -533,6 +442,7 @@
                 </div>
             </div>
         </div>
+
         <div class="container project-section">
             <div class="project-container">
                 <div class="project-image">
@@ -547,16 +457,16 @@
             </div>
         </div>
     </div>
+
     <div class="container contact-section">
         <div class="section">
             <div class="container-flex">
                 <div class="details">
                     <ul class="contact-list">
-                        <li><i class="fas fa-envelope"></i> &nbsp nitish6181@email.com</li>
+                        <li><i class="fas fa-envelope"></i> &nbsp nitish6181@gmail.com</li>
                         <li><i class="fas fa-phone"></i> &nbsp +91 9971945966</li>
-                        <li><i class="fab fa-linkedin"></i> &nbsp linkedin.com/in/example</li>
-                        <li><i class="fas fa-map-marker-alt"></i> &nbsp Sarita Vihar, M.P.K Ext., New Delhi - 110076
-                        </li>
+                        <li><i class="fab fa-linkedin"></i> &nbsp linkedin.com/in/nitishkumar</li>
+                        <li><i class="fas fa-map-marker-alt"></i> &nbsp Sarita Vihar, M.P.K Ext., New Delhi - 110076</li>
                     </ul>
                 </div>
                 <div class="image-container">
@@ -565,41 +475,25 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-
-    </div>
-
-    <!-- script -->
-
-  
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let sections = document.querySelectorAll(".container");
-    
             let observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
                         setTimeout(() => {
                             entry.target.classList.add("show");
-                        }, index * 1200); // Har section ke liye delay increase hoga
-                        observer.unobserve(entry.target); // Ek baar animate hone ke baad dubara observe mat karo
+                        }, index * 1200);
+                        observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.2 });
-    
             sections.forEach(section => {
                 observer.observe(section);
             });
         });
     </script>
-    
-
-   
-
-
 </body>
-
-
 </html>
